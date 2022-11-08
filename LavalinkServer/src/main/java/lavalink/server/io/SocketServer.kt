@@ -25,6 +25,7 @@ package lavalink.server.io
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager
 import dev.arbjerg.lavalink.api.AudioFilterExtension
+import dev.arbjerg.lavalink.api.IPlayer
 import dev.arbjerg.lavalink.api.PluginEventHandler
 import dev.arbjerg.lavalink.api.WebSocketExtension
 import dev.arbjerg.lavalink.protocol.Message
@@ -64,7 +65,7 @@ class SocketServer(
     companion object {
         private val log = LoggerFactory.getLogger(SocketServer::class.java)
 
-        fun sendPlayerUpdate(socketContext: SocketContext, player: LavalinkPlayer) {
+        fun sendPlayerUpdate(socketContext: SocketContext, player: IPlayer) {
             if (socketContext.sessionPaused) return
 
             val connection = socketContext.getMediaConnection(player).gatewayConnection

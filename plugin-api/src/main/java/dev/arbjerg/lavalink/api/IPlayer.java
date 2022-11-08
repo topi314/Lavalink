@@ -2,6 +2,8 @@ package dev.arbjerg.lavalink.api;
 
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
+import moe.kyokobot.koe.MediaConnection;
+import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
 /**
@@ -28,6 +30,9 @@ public interface IPlayer {
      * @return the WebSocket this player belongs to
      */
     ISocketContext getSocketContext();
+
+    @NonNull
+    MediaConnection getMediaConnection();
 
     /**
      * @param track the track to start playing, potentially replacing an existing one

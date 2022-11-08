@@ -1,5 +1,6 @@
 package dev.arbjerg.lavalink.api;
 
+import moe.kyokobot.koe.MediaConnection;
 import org.json.JSONObject;
 import org.springframework.lang.Nullable;
 
@@ -32,6 +33,8 @@ public interface ISocketContext {
      * @return a read-only map of all players associated by their guild
      */
     Map<Long, IPlayer> getPlayers();
+
+    MediaConnection getMediaConnection(IPlayer player);
 
     /**
      * @param guildId guild for which to remove player state from

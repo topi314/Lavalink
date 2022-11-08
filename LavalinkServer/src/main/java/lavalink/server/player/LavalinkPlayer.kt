@@ -36,6 +36,7 @@ import lavalink.server.io.SocketServer.Companion.sendPlayerUpdate
 import lavalink.server.player.filters.FilterChain
 import moe.kyokobot.koe.MediaConnection
 import moe.kyokobot.koe.media.OpusAudioFrameProvider
+import org.springframework.lang.NonNull
 import java.util.concurrent.ScheduledFuture
 import java.util.concurrent.TimeUnit
 
@@ -78,6 +79,10 @@ class LavalinkPlayer(
     override fun getGuildId(): Long = guildId
 
     override fun getSocketContext(): ISocketContext = socket
+
+    override fun getMediaConnection(): MediaConnection {
+        return socket.getMediaConnection(this)
+    }
 
     override fun play(track: AudioTrack) {
         audioPlayer.playTrack(track)
