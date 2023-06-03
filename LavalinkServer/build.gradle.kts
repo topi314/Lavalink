@@ -104,6 +104,10 @@ tasks {
         useJUnitPlatform()
     }
 
+    named<Jar>("jar") {
+        archiveClassifier.set("")
+    }
+
     withType<BootJar> {
         archiveFileName.set("Lavalink.jar")
     }
